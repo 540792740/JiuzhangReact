@@ -53,7 +53,7 @@ function TodoForm({addTodo}){
 }
 
 function App() {
-  const [todos, setTodos] = useState(init_Todos)
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || init_Todos)
   useEffect(()=>{
     localStorage.setItem('todos', JSON.stringify(todos))
 
