@@ -9,3 +9,6 @@
 ## Splice
     * arr.splice(index, deleteCount, replace Into);
     * arr.splice(3, 2, 'a') replace from index = 3 to index = 5, into 'a'
+
+## e.stopPropagation()
+    * stop pass to child

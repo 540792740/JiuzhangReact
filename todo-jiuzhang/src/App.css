@@ -34,3 +34,12 @@
 .remove{
   display: none ;
 }
+
+.task{
+  display: flex;
+  align-items: center;
+}
+
+.task .icon{
+  margin-right: 5px;
+}
