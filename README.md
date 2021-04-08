@@ -15,6 +15,7 @@
 
 ## Babel
     * "babel 是一个代码转译器，比如说你想使用一些最新的语法，就可以通过 babel 安装插件，然后 babel 帮你把新特性代码转换成浏览器可以兼容的格式 "
+    * npm install babel-plugin-import -D  antd的按需加载, override.js更新，提升性能。
 
 ## LocalStorage
     * Can only save string, must using JSON.stringify(todo).
@@ -23,3 +24,21 @@
     * JSON.parse(localStorage.getItem('todos'))
 
     * localStorage.removeItem('todos')
+## LESS 
+    Using Less loader to eject Less.
+    * npm install react-app-rewired -D 
+        * change package.json react-script to react-app-rewired
+    * npm install customize-cra -D 
+        * add config-overrides.js at root
+    * npm i css-loader less less-loader@6.0.0 -D
+
+    * 使用方式 import style from 'xx.module.less' className={style.menu}
+
+    * ./login.module.less: &::before{}, :global{}
+
+## antd
+    * prefix: using add component before current Com ponent
+    * Using Form
+
+## function component
+    *  const { name, ...rest } = props

@@ -14,10 +14,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +36,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.3",
+    "css-loader": "^5.2.0",
+    "customize-cra": "^1.0.0",
+    "less": "^4.1.1",
+    "less-loader": "^6.0.0",
+    "react-app-rewired": "^2.1.8",
+    "style-loader": "^2.0.0"
   }
 }
