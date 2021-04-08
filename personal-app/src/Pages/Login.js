@@ -1,14 +1,18 @@
-import React from 'react';
-import { Tabs, Form } from 'antd';
+import React, { useState } from 'react';
+import { Tabs, Form, Checkbox, Row } from 'antd';
 import styles from '../styles/login.module.less';
 import SubmitButton from '../Components/SubmitButton'
 import InputItem from '../Components/InputItem'
-import { UserOutlined, LockOutlined, MobileTwoTone, LockTwoone } from '@ant-design/icons';
+import {
+    UserOutlined, LockOutlined, MobileTwoTone, MailTwoTone,
+    AlipayCircleOutlined, TaobaoCircleOutlined, WeiboCircleOutlined
+} from '@ant-design/icons';
 
 const { TabPane } = Tabs;
 
 function Login(props) {
     const [form] = Form.useForm()
+    const [autoLogin, setAutoLogin] = useState(true)
     const onFinish = (value) => {
         console.log(value);
     }
@@ -47,6 +51,15 @@ function Login(props) {
                                     }
                                 ]}
                             />
+                            <Row justify='space-between'>
+                                <Checkbox
+                                    checked={autoLogin}
+                                    onChange={(e) => setAutoLogin(e.target.checked)}
+                                >
+                                    Auto Login
+                                </Checkbox>
+                                <a href='#'>Forgot Password</a>
+                            </Row>
                             <SubmitButton > Submit </SubmitButton>
                         </TabPane>
                         <TabPane tab='Mobile Login' key='2'>
@@ -66,7 +79,7 @@ function Login(props) {
                             />
                             <InputItem
                                 prefix={
-                                    <LockTwoone />
+                                    <MailTwoTone />
                                 }
                                 name='Captcha'
                                 placeholder='Password'
@@ -83,7 +96,12 @@ function Login(props) {
                         </TabPane>
                     </Tabs>
                 </Form>
-
+                <div>
+                    Other Login Ways
+                    <AlipayCircleOutlined style={styles.icon} />
+                    <TaobaoCircleOutlined style={styles.icon} />
+                    <WeiboCircleOutlined style={styles.icon} />
+                </div>
             </div>
         </div>
     );

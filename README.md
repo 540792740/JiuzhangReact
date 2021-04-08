@@ -42,3 +42,10 @@
 
 ## function component
     *  const { name, ...rest } = props
+
+## useEffect
+    * return: unmount
+    * 
+
+## useState
+    * setState( previous=> console.log(previous)); // 其中 previous 的值就是上次更新的 state
