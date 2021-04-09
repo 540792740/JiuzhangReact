@@ -7,6 +7,7 @@ import {
     UserOutlined, LockOutlined, MobileTwoTone, MailTwoTone,
     AlipayCircleOutlined, TaobaoCircleOutlined, WeiboCircleOutlined
 } from '@ant-design/icons';
+import { Link } from "react-router-dom";
 
 const { TabPane } = Tabs;
 
@@ -96,11 +97,12 @@ function Login(props) {
                         </TabPane>
                     </Tabs>
                 </Form>
-                <div>
+                <div className={styles.other}>
                     Other Login Ways
-                    <AlipayCircleOutlined style={styles.icon} />
-                    <TaobaoCircleOutlined style={styles.icon} />
-                    <WeiboCircleOutlined style={styles.icon} />
+                    <AlipayCircleOutlined className={styles.icon} />
+                    <TaobaoCircleOutlined className={styles.icon} />
+                    <WeiboCircleOutlined className={styles.icon} />
+                    <Link className={styles.register} to='/register'>register</Link>
                 </div>
             </div>
         </div>

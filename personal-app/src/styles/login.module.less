@@ -1,3 +1,5 @@
+@import '~antd/lib/style/themes/default.less';
+
 .loginContainer{
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/171209_%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%28%EB%AA%A8%EB%AA%A8%EB%85%B8%EA%B8%B0_%EC%B9%B4%EB%82%98%29_2017_FAN_MEETING_in_SEOUL_%28First_Kiss%291%E9%83%A8_%E5%86%99%E7%9C%9F_%E2%99%A1%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%E2%99%A1_%2829%29.jpg/896px-171209_%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%28%EB%AA%A8%EB%AA%A8%EB%85%B8%EA%B8%B0_%EC%B9%B4%EB%82%98%29_2017_FAN_MEETING_in_SEOUL_%28First_Kiss%291%E9%83%A8_%E5%86%99%E7%9C%9F_%E2%99%A1%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%E2%99%A1_%2829%29.jpg);
     background-repeat: no-repeat;
@@ -25,7 +27,23 @@
         input{
             background: none;
             border: none;
+        }
 
+        .other{
+            .icon{
+                margin-left: 16px;
+                color: @text-color-secondary;
+                font-size: 24px;
+                vertical-align: middle;
+                cursor: pointer;
+                transition: color 0.3s;
+                &:hover{
+                    color: @primary-color;
+                }
+            }
+            .register{
+                float: right;
+            }
         }
     }
 

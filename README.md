@@ -36,6 +36,9 @@
 
     * ./login.module.less: &::before{}, :global{}
 
+    * @import '~antd/lib/style/themes/default.less';  
+    **   color: @text-color-secondary;
+
 ## antd
     * prefix: using add component before current Com ponent
     * Using Form
@@ -49,3 +52,25 @@
 
 ## useState
     * setState( previous=> console.log(previous)); // 其中 previous 的值就是上次更新的 state
+
+## CSS
+    * vertical-align: middle 一行对齐
+    * margin: 0 auto; 水平居中
+
+## key in react
+    ```
+        same key value will improve performance
+        <ul>
+            <li key=2012>same one</li>
+        </ul>
+        <ul>
+            <li key=2012>same one</li>  
+        </ul>
+    ```
+
+    * if using index as key, every time need to rerender, which can decrease performance
+
+## setState
+    * why setState is Async?
+        ** 保持内部一致性, inner function, state will not change.
+        ** improve performance
