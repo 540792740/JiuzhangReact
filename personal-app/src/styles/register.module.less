@@ -1,0 +1,41 @@
+@import '~antd/lib/style/themes/default.less';
+
+.registerContainer{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/171209_%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%28%EB%AA%A8%EB%AA%A8%EB%85%B8%EA%B8%B0_%EC%B9%B4%EB%82%98%29_2017_FAN_MEETING_in_SEOUL_%28First_Kiss%291%E9%83%A8_%E5%86%99%E7%9C%9F_%E2%99%A1%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%E2%99%A1_%2829%29.jpg/896px-171209_%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%28%EB%AA%A8%EB%AA%A8%EB%85%B8%EA%B8%B0_%EC%B9%B4%EB%82%98%29_2017_FAN_MEETING_in_SEOUL_%28First_Kiss%291%E9%83%A8_%E5%86%99%E7%9C%9F_%E2%99%A1%E6%A1%83%E4%B9%83%E6%9C%A8%E3%81%8B%E3%81%AA%E2%99%A1_%2829%29.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-size: 100%;
+    height: 500px;
+    width: 400px;
+    margin: 50px auto;
+   
+    .register{
+        padding-top: 100px;
+        width: 368px;
+        margin: 0 auto;
+        
+        input{
+            background: none;
+            border: none;
+        }
+    }
+    .loginLink{
+        float: right;
+    }
+}
+
+.success, .warning, .error{
+    transition: color 0.3s;
+}
+
+.success{ color: @success-color }
+.warning{ color : @warning-color }
+.error{ color : @error-color}
+
+.progress-pass > .progress{
+    :global{
+        .ant-progress-bg{ 
+            background-color: @warning-color;
+        }
+    }
+}

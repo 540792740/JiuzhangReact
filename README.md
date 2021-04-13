@@ -42,13 +42,15 @@
 ## antd
     * prefix: using add component before current Com ponent
     * Using Form
+    * more focus on Bussiness design, bundle size is large, contain more design
 
 ## function component
     *  const { name, ...rest } = props
 
 ## useEffect
     * return: unmount
-    * 
+    * when there is no second para: always call this hook after render.
+    * when second para is empty array: excute once, work same as componentDidMount
 
 ## useState
     * setState( previous=> console.log(previous)); // 其中 previous 的值就是上次更新的 state
@@ -74,3 +76,23 @@
     * why setState is Async?
         ** 保持内部一致性, inner function, state will not change.
         ** improve performance
+
+## 写程序的提高：
+    * donot repeat yourself
+
+## React improve Reuseability 可复用性:
+    * Mixin: based on OOP design(no longer be uesd)
+    * HOC ： lack: wapper hell
+    * Render props
+    * Hooks
+
+## browser type address, what will happen?
+    * Browser will find IP address of Domain name
+        ** based on cache: broweser cache -> OS cache -> Router Cache - DNS Cache -> Root Domain Name C ache
+    * Build TCP connection
+    * Browser will send a HTTP request to WEB
+        ** 200 sucessful
+        ** 3xx need client resend request
+        ** 4xx client issue, 404 not found
+        ** 5xx server issue
+    * Server side will receive request and close TCP connection, return a 

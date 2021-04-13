@@ -59,7 +59,7 @@ function Login(props) {
                                 >
                                     Auto Login
                                 </Checkbox>
-                                <a href='#'>Forgot Password</a>
+                                <a href='/'>Forgot Password</a>
                             </Row>
                             <SubmitButton > Submit </SubmitButton>
                         </TabPane>
