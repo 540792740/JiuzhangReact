@@ -32,6 +32,10 @@
     * mixin 
     * if else
     * 继承 @extend .class
+* Methd:
+    * eject
+    * override cra: using react-app-rewired in LESS(example)
+* 按需加载
 #### LESS： Using Less loader to eject Less.
 * npm install react-app-rewired -D 
     * change package.json react-script to react-app-rewired
