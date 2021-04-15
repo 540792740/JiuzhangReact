@@ -73,6 +73,10 @@
 ## CSS
 * vertical-align: middle 一行对齐
 * margin: 0 auto; 水平居中
+*   overflow: hidden: 框外的不显示
+    white-space: nowrap; 不换行
+    text-overflow: ellipsis
+    word-break: break-all; 长词换行显示
 
 ## key in react
 ```
@@ -133,4 +137,14 @@
 ## setting.json
     "editor.formatOnSave": true,
 
+## Lazy Loading 
+* Browser will loading component when use it rather than loading everything.
+* save network resource
+```
+const Login = lazy(() => import('../Pages/Login'))
+<Suspense fallback='loading...'>Router inside...</Suspense>
+```
+
+## table with screen size 
+* <Col lg={7} md={24}></Col>
 

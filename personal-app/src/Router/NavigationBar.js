@@ -1,19 +1,29 @@
-import React from 'react';
+import { Spin } from 'antd';
+import React, { lazy, Suspense } from 'react';
 import {
     Switch,
     Route,
 } from "react-router-dom";
-import Home from '../Pages/Home'
-import Login from '../Pages/Login'
-import Register from '../Pages/Register'
+import styles from '../styles/navbar.module.less';
+
+const Home = lazy(() => import('../Pages/Home'))
+const Login = lazy(() => import('../Pages/Login'))
+const Register = lazy(() => import('../Pages/Register'))
 
 function NavigationBar(props) {
     return (
-        <Switch>
-            <Route exact path='/login' component={Login}></Route>
-            <Route exact path='/Register' component={Register}></Route>
-            <Route path='/' component={Home}></Route>
-        </Switch>
+        <Suspense fallback={
+            <div className={styles.spinWrap}>
+                <Spin size='large' />
+            </div>
+        }>
+            <Switch>
+                <Route exact path='/login' component={Login}></Route>
+                <Route exact path='/Register' component={Register}></Route>
+                <Route path='/' component={Home}></Route>
+            </ Switch>
+        </Suspense>
+
     );
 }
 
