@@ -5,12 +5,15 @@ import styles from '../styles/home.module.less';
 import Articles from '../Components/Articles'
 import Applications from '../Components/Applications'
 import Projects from '../Components/Projects'
-import { currentUser } from '../data/data'
+import { currentUser, fakeList } from '../data/data'
 import {
     ContactsOutlined, HomeOutlined, ClusterOutlined
 } from '@ant-design/icons';
 import TagList from '../Components/TagList';
 
+const articleList = fakeList(10);
+const applicationList = fakeList(15);
+const projectList = fakeList(10);
 
 const operationTabList = [
     {
@@ -43,11 +46,11 @@ function Home(props) {
     const contentTab = (value) => {
         switch (value) {
             case 'Articles':
-                return <Articles />;
+                return <Articles list={articleList} />;
             case 'Applications':
-                return <Applications />;
+                return <Applications list={applicationList} />;
             case 'Projects':
-                return <Projects />;
+                return <Projects list={projectList} />;
         }
     }
 

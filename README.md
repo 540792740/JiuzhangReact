@@ -148,3 +148,14 @@ const Login = lazy(() => import('../Pages/Login'))
 ## table with screen size 
 * <Col lg={7} md={24}></Col>
 
+## Destructuring Assignment 解构赋值
+*  https://blog.don.red/destructuring-assignment/
+
+## moment
+* moment(item.updateAt).fromNow()
+
+## Redux
+* npm install redux redux-thunk redux-react-hook -s
+* steps:
+    1. create root reducer file, exprot it
+    2. create store at root index.js 
