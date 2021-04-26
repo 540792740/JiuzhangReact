@@ -36,6 +36,7 @@
     * eject
     * override cra: using react-app-rewired in LESS(example)
 * 按需加载
+
 #### LESS： Using Less loader to eject Less.
 * npm install react-app-rewired -D 
     * change package.json react-script to react-app-rewired
@@ -151,7 +152,7 @@ const Login = lazy(() => import('../Pages/Login'))
 ## Destructuring Assignment 解构赋值
 *  https://blog.don.red/destructuring-assignment/
 
-## moment
+## moment API： Deal with Time 
 * moment(item.updateAt).fromNow()
 
 ## Redux
@@ -159,3 +160,7 @@ const Login = lazy(() => import('../Pages/Login'))
 * steps:
     1. create root reducer file, exprot it
     2. create store at root index.js 
+
+## Axios 的拦截器
+
+## 如何实现按需加载？？？
