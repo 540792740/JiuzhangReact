@@ -59,12 +59,17 @@
 * prefix: using add component before current Com ponent
 * Using Form
 * more focus on Bussiness design, bundle size is large, contain more design
+* Grid
+    * 24 grid (bootstrap 12 grid )
+    * `<Row gutter={16}>` between two grid
+    * `<Col span={8}` take 8 / 24
 
 ## function component
 *  const { name, ...rest } = props
 
 ## useEffect
-* return: unmount
+* trigger useEffect when second para[] changed
+* when first para return a function: unmount
 * when there is no second para: always call this hook after render.
 * when second para is empty array: excute once, work same as componentDidMount
 
@@ -78,6 +83,10 @@
     white-space: nowrap; 不换行
     text-overflow: ellipsis
     word-break: break-all; 长词换行显示
+* justify: space-between: 放在两端
+            space-around: 两边留白
+            start 放在开头
+            center 中间
 
 ## key in react
 ```
@@ -164,3 +173,34 @@ const Login = lazy(() => import('../Pages/Login'))
 ## Axios 的拦截器
 
 ## 如何实现按需加载？？？
+
+## counter
+* Promise:
+```
+    fn = (i) =>{
+        return new Promise((resolve, reject)=>{
+            setTimeOut(()=>{
+                resolve(i)
+            }, i * 1000)
+        })
+    }
+```
+* async \ await
+```
+    fn = () =>{
+        for( let i = 0; i < 5; i++){
+            const res = await fn(i);
+            consolo.log(res)
+        }
+    }
+```
+
+## clearInterval: without that, will listen the interval all the time which will waste Memory
+
+## anonymous funtion run immediately 
+* used when print 5 second using setTime out method 
+```
+    for(let i){
+        (function anyo(i){consolo.log(i)})(i)
+    }
+```
