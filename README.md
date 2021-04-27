@@ -35,7 +35,7 @@
 * Methd:
     * eject
     * override cra: using react-app-rewired in LESS(example)
-* 按需加载
+
 
 #### LESS： Using Less loader to eject Less.
 * npm install react-app-rewired -D 
@@ -63,6 +63,7 @@
     * 24 grid (bootstrap 12 grid )
     * `<Row gutter={16}>` between two grid
     * `<Col span={8}` take 8 / 24
+    * used when screen size changed `<Col key={item.id} lg={24} xl={12}>`
 
 ## function component
 *  const { name, ...rest } = props
@@ -87,6 +88,18 @@
             space-around: 两边留白
             start 放在开头
             center 中间
+* .div1::after{content:'...'} add content after the element
+
+## css interview question: two line long sentences:
+```
+    display: -webkit-box;
+    overflow: hidden: 框外的不显示
+    -webkit-line-clamp:2 显示两行
+    -webkit-box-orient:vertical
+```
+
+## compatibility (browser support)：
+[can I use](https://caniuse.com/)
 
 ## key in react
 ```
@@ -147,14 +160,6 @@
 ## setting.json
     "editor.formatOnSave": true,
 
-## Lazy Loading 
-* Browser will loading component when use it rather than loading everything.
-* save network resource
-```
-const Login = lazy(() => import('../Pages/Login'))
-<Suspense fallback='loading...'>Router inside...</Suspense>
-```
-
 ## table with screen size 
 * <Col lg={7} md={24}></Col>
 
@@ -170,9 +175,7 @@ const Login = lazy(() => import('../Pages/Login'))
     1. create root reducer file, exprot it
     2. create store at root index.js 
 
-## Axios 的拦截器
 
-## 如何实现按需加载？？？
 
 ## counter
 * Promise:
@@ -204,3 +207,59 @@ const Login = lazy(() => import('../Pages/Login'))
         (function anyo(i){consolo.log(i)})(i)
     }
 ```
+
+## Promise:
+* 4 api: Resolve(), Reject(), Race()有一个通过就可以继续, All() 所有通过才可以继续
+* 3 state: Pending, Resolved(Fullfiled), Rejected
+
+
+## Axios 的拦截器
+
+
+## Lazy Loading 按需加载/懒加载
+* Browser will loading component when use it rather than loading everything.
+* save network resource
+```
+    import React, { lazy, Suspense } from 'react';
+    const Login = lazy(() => import('../Pages/Login'))
+```
+
+## loading: Suspense wrap component, used when async loading
+```
+    import React, { lazy, Suspense } from 'react';
+    <Suspense fallback='loading...'>Router inside...</Suspense>
+```
+
+## Memo
+* worked as pure component ??????
+
+## Interview Question: array reduce duplicated element
+* [new Set(arr)]
+* `arr.reduce((prev, cur)=> prev.include(cur) ? prev : [...prev, cur], [])`
+
+## 控制流量
+* nosql
+    * seperate write second DB and read main DB: update 读写分离
+    * seperate table 分表
+    * Nginx & nosql
+* 10min传一次
+
+## meta in html
+* only show up in `<head>`
+* `<meta charset='utf-8'>`
+* E.g. name, charset, http-quiv
+
+## Axios:
+* reating an instance, You can create a new instance of axios with a custom config.
+```
+    const instance = axios.create({
+        baseURL: 'https://some-domain.com/api/',
+        timeout: 1000,
+        headers: {'X-Custom-Header': 'foobar'}
+    });
+```
+* interceptors
+    * used to deal with duplicated request or response. `instance.interceptors.request.use()`
+    * 拦截器是用于统一处理请求或响应的一种工具，结合了 AOP 切面编程的思想。
+    * Request Interceptor & Response Interceptor 
+    * AOP，切面编程思想。
