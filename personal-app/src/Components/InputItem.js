@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Form, Button, Row, Col, message } from 'antd';
+import { Input, Form, Button, Row, Col } from 'antd';
 import styles from '../styles/inputItem.module.less';
-import getCaptcha from '../actions/action'
 
 function InputItem(props) {
     const { name, onClick, rules, ...rest } = props

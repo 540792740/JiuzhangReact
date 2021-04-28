@@ -1,5 +1,5 @@
 import { Card, Col, Divider, Row, Avatar } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import styles from '../styles/home.module.less';
 import Articles from '../Components/Articles'
@@ -10,11 +10,14 @@ import {
     ContactsOutlined, HomeOutlined, ClusterOutlined
 } from '@ant-design/icons';
 import TagList from '../Components/TagList';
+import { useDispatch, useMappedState } from 'redux-react-hook'
+import { getUserProfile } from '../actions/profile'
 
 const articleList = fakeList(10);
 const applicationList = fakeList(15);
 const projectList = fakeList(10);
 
+const mapState = state => state.profile
 const operationTabList = [
     {
         key: 'Articles',
@@ -36,12 +39,19 @@ const operationTabList = [
     },
 ]
 
-function Home(props) {
+function Home() {
     const [tabKey, settabKey] = useState('Articles')
+    const dispatch = useDispatch();
+    const res = useMappedState(mapState);
 
+    console.log("test", res);
     const onTabChange = (value) => {
         settabKey(value)
     }
+
+    useEffect(() => {
+        dispatch(getUserProfile())
+    }, [dispatch])
 
     const contentTab = (value) => {
         switch (value) {
@@ -51,6 +61,8 @@ function Home(props) {
                 return <Applications list={applicationList} />;
             case 'Projects':
                 return <Projects list={projectList} />;
+            default:
+                return <Articles list={articleList} />
         }
     }
 

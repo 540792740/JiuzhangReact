@@ -174,6 +174,7 @@
 * steps:
     1. create root reducer file, exprot it
     2. create store at root index.js 
+* npm i redux-devtools-extension -s
 
 
 
