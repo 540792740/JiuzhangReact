@@ -11,3 +11,6 @@ export function register(param) {
     return ajax.post(`${HOST}/user/register`, { data: param })
 }
 
+export function login(params) {
+    return ajax.post(`${HOST}/user/login`, { data: params });
+}
