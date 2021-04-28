@@ -264,3 +264,14 @@
     * 拦截器是用于统一处理请求或响应的一种工具，结合了 AOP 切面编程的思想。
     * Request Interceptor & Response Interceptor 
     * AOP，切面编程思想。
+## interview question:
+* keep login status: using Cookie
+    * first response, server provide cookie
+    * second request need keep cookie.
+* Cookie lackness:
+    * length limited, cannot save too many informaitons
+    * security limited
+    * using HTTP Only, improve security
+
+## samesite
+* strict, lax, none
