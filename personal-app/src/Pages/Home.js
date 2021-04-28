@@ -17,8 +17,6 @@ const articleList = fakeList(10);
 const applicationList = fakeList(15);
 const projectList = fakeList(10);
 
-const mapState = state => state.profile;
-
 const operationTabList = [
     {
         key: 'Articles',
@@ -43,7 +41,9 @@ const operationTabList = [
 function Home() {
     const [tabKey, settabKey] = useState('Articles')
     const dispatch = useDispatch();
-    const res = useMappedState(mapState);
+    const res = useMappedState((state) => {
+        return state
+    });
 
     console.log("test", res);
     const onTabChange = (value) => {

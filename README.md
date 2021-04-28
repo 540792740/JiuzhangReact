@@ -275,3 +275,5 @@
 
 ## samesite
 * strict, lax, none
+
+## window.location.href = '/home'
