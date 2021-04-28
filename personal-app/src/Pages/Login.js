@@ -8,13 +8,19 @@ import {
     AlipayCircleOutlined, TaobaoCircleOutlined, WeiboCircleOutlined
 } from '@ant-design/icons';
 import { Link } from "react-router-dom";
+import { login } from '../actions/action';
+import { useDispatch } from 'redux-react-hook';
+
+
 
 const { TabPane } = Tabs;
 
 function Login(props) {
+    const dispatch = useDispatch();
     const [form] = Form.useForm()
     const [autoLogin, setAutoLogin] = useState(true)
     const onFinish = (value) => {
+        dispatch(login(value));
         console.log(value);
     }
     return (

@@ -25,4 +25,19 @@ export function register(payload = {}) {
         }
 
     }
-} 
+}
+
+export function login(payload = {}) {
+    return async () => {
+        let res = await api.login(payload);
+        console.log("login", res);
+        // const { code, message: msg, data: { token } = {} } = await api.login(payload);
+        // if (code === 0) {
+        //     message.success(msg);
+        //     window.localStorage.setItem('personal-app-token', token);
+        //     window.location.href = "/";
+        // } else {
+        //     message.error(msg);
+        // }
+    }
+}

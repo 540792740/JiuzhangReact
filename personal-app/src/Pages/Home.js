@@ -17,7 +17,8 @@ const articleList = fakeList(10);
 const applicationList = fakeList(15);
 const projectList = fakeList(10);
 
-const mapState = state => state.profile
+const mapState = state => state.profile;
+
 const operationTabList = [
     {
         key: 'Articles',
@@ -50,8 +51,8 @@ function Home() {
     }
 
     useEffect(() => {
-        dispatch(getUserProfile())
-    }, [dispatch])
+        dispatch(getUserProfile());
+    }, [dispatch]);
 
     const contentTab = (value) => {
         switch (value) {
