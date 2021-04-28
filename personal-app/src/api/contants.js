@@ -1,1 +1,1 @@
-export const HOST = 'http://123.57.164.143:8099/jzsf';
+export const HOST = 'https://demo.don.red/user-center/api';

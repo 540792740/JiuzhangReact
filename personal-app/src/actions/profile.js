@@ -3,14 +3,13 @@ import { message } from 'antd'
 
 export function getCaptcha(payload = {}) {
     return async () => {
-        let res = await api.getCaptcha(payload);
-        console.log(res);
-        const { data: { code, message: msg } } = await api.getCaptcha(payload);
-        if (code === 20020) {
-            message.success(`${msg}`)
+        const { data: { code, message: msg, data: { capture } } } = await api.getCaptcha(payload);
+        if (code === 20018) {
+            message.success(`${msg}, captcha is ${capture}`)
         } else {
             message.error(msg)
         }
+
     }
 }
 
@@ -18,7 +17,7 @@ export function getCaptcha(payload = {}) {
 export function register(payload = {}) {
     return async () => {
         const { data: { code, message: msg } } = await api.register(payload);
-        if (code === 20023) {
+        if (code === 20018) {
             message.success(msg)
         } else {
             message.error(msg)

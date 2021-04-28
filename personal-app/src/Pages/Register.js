@@ -7,6 +7,10 @@ import {
 import styles from '../styles/register.module.less';
 import SubmitButton from '../Components/SubmitButton'
 import { Link } from 'react-router-dom';
+import { getCaptcha, register } from '../actions/action'
+import { useDispatch } from 'redux-react-hook'
+
+
 
 
 const { Option } = Select
@@ -37,12 +41,14 @@ const passwordPrograssMap = {
 
 
 const Register = (props) => {
+    const dispatch = useDispatch()
     const [form] = Form.useForm()
     const [visable, setVisable] = useState(false)
     const [prefix, setPrefix] = useState('86')
     const [popValue, setPopValue] = useState(0)
     const onFinish = (value) => {
         console.log(value);
+        dispatch(register(value))
     }
     const checkConfirm = (_, value) => {
         const promise = Promise;
@@ -84,6 +90,13 @@ const Register = (props) => {
         else return 'poor';
     }
 
+    const handleClickCaptcha = () => {
+        form.validateFields(['username', 'email', 'password'])
+            .then(() => {
+                dispatch(getCaptcha(form.getFieldsValue(['username', 'email', 'password'])))
+            })
+    }
+
     return (
         <div className={styles.registerContainer}>
             <div className={styles.register}>
@@ -92,7 +105,21 @@ const Register = (props) => {
                         prefix={
                             <UserOutlined style={{ color: 'blue' }} />
                         }
-                        name='mail'
+                        name='username'
+                        placeholder='username'
+                        size='large'
+                        rules={[
+                            {
+                                required: true,
+                                message: 'please type your username'
+                            }
+                        ]}
+                    />
+                    <InputItem
+                        prefix={
+                            <UserOutlined style={{ color: 'blue' }} />
+                        }
+                        name='email'
                         placeholder='Mail Address'
                         size='large'
                         rules={[
@@ -142,7 +169,7 @@ const Register = (props) => {
                         prefix={
                             <LockOutlined style={{ color: 'blue' }} />
                         }
-                        name='confirm'
+                        name=' '
                         placeholder='Confirm your password'
                         type='password'
                         size='large'
@@ -200,6 +227,7 @@ const Register = (props) => {
                             }
                         ]}
                         placeholder='Please type your captcha'
+                        onClick={handleClickCaptcha}
                     >
 
                     </InputItem>

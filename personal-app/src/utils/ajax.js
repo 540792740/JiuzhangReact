@@ -1,13 +1,15 @@
 import axios from 'axios';
+import * as interceptors from './interceptors'
 
-function getAxiosInstance() {
+function getAxiosInstance(options) {
     const instance = axios.create();
+    // interceptors(instance, options)
     return instance;
 }
 
 function makeGet() {
     return function (url, option) {
-        const instance = getAxiosInstance();
+        const instance = getAxiosInstance(option);
         return instance({
             url,
             method: 'get',
@@ -19,7 +21,7 @@ function makeGet() {
 
 function makePost() {
     return function (url, option) {
-        const instance = getAxiosInstance();
+        const instance = getAxiosInstance(option);
         return instance({
             url,
             method: 'post',

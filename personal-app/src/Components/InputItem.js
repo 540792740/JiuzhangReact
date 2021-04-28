@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Form, Button, Row, Col, message } from 'antd';
 import styles from '../styles/inputItem.module.less';
-import { useDispatch } from 'redux-react-hook'
 import getCaptcha from '../actions/action'
 
 function InputItem(props) {
-    const { name, rules, ...rest } = props
-    const dispatch = useDispatch()
+    const { name, onClick, rules, ...rest } = props
     const [timing, setTiming] = useState(false)
     const [count, setCount] = useState(props.countDown || 5)
     const clickHandler = () => {
-        message.success('Sucessful received Captcha');
-        dispatch(getCaptcha())
+        onClick();
         setTiming(true)
     }
 
