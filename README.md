@@ -286,7 +286,19 @@
 * Cannot get AJAX request
 * Solutions:
     * CORS(Cross-origin resource sharing)
-    * Node add proxy middleware 
+    * Node add proxy middleware: npm install http-proxy-middleware
+    ```
+        module.exports = function (app) {
+            app.use(
+                '/proxy',
+                createProxyMiddleware({
+                    target: 'http://api/weibo.com',
+                    pathRewrite: { '/proxy': '/' },
+                    changeOrigin: true
+                })
+            )
+        }
+    ```
 
 ## Access problem:
 * only allowed same domain with different path.
@@ -298,3 +310,9 @@
 * padding : 80%  => '%' percetage will based on width
 
 ## antd react-infinite-scroller 
+
+## Interview question: what is Serverside Rendering:
+* The ReactDOMServer object enables you to render components to static markup. Typically, it’s used on a Node server:
+The following methods can be used in both the server and browser environments:
+renderToString()
+renderToStaticMarkup()

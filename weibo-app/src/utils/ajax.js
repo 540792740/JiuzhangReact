@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as interceptors from './interceptors'
+// import * as interceptors from './interceptors'
 
 function getAxiosInstance(options) {
     const instance = axios.create();
