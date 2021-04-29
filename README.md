@@ -49,7 +49,9 @@
 
 * @import '~antd/lib/style/themes/default.less';  
     *   color: @text-color-secondary;
+
 #### SASS：
+* React has inner node-sass: yarn add node-sass -D
 * SCSS is more functional than SASS, almost same. Sass is strict write way(no {})
 
 
@@ -277,3 +279,22 @@
 * strict, lax, none
 
 ## window.location.href = '/home'
+
+## Interview question: Cross-origin 
+* Cannot get Cookie, Localstorage, indexDB 
+* Cannot get DOM and JS object
+* Cannot get AJAX request
+* Solutions:
+    * CORS(Cross-origin resource sharing)
+    * Node add proxy middleware 
+
+## Access problem:
+* only allowed same domain with different path.
+* port different, http/https, domain and it's IP address, Subdomain different，different domain
+
+## OAuth??
+
+## Mobile CSS
+* padding : 80%  => '%' percetage will based on width
+
+## antd react-infinite-scroller 
