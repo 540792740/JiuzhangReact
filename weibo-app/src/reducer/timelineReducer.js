@@ -1,18 +1,20 @@
 import { GET_TIMELINE } from "../constance/actions";
-import fakeData from '../constance/fakeData';
-
 
 const initialState = {
-    home: fakeData
+    home: { posts: [], page: 0 }
 }
 
 export default function timelineReducer(state = initialState, action) {
-    const { statuses } = action.payload || {}
+    const statuses = action.payload || {}
+    const { page } = action.params || 1
     switch (action.type) {
         case GET_TIMELINE:
             return {
                 ...state,
-                home: statuses
+                home: {
+                    posts: [...state.home.posts, ...statuses],
+                    page,
+                },
             }
         default:
             return state

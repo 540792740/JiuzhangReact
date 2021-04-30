@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 
 const Home = lazy(() => import('../Pages/Home/Home'))
+const New = lazy(() => import('../Pages/New/New'))
+const Login = lazy(() => import('../Pages/Login/Login'))
 
 function NavigationBar() {
     return (
@@ -14,7 +16,10 @@ function NavigationBar() {
             </div>
         }>
             <Switch>
-                <Route path='/' component={Home}></Route>
+                <Route exact path='/' component={Home}></Route>
+                <Route exact path='/login' component={Login}></Route>
+                <Route exact path='/new' component={New}></Route>
+                <Route exact path='/comments/:id' component={New}></Route>
             </ Switch>
         </Suspense>
 

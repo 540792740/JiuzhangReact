@@ -1,17 +1,30 @@
 import * as api from '../api/timelineapi';
-import { GET_TIMELINE } from "../constance/actions"
+import { GET_TIMELINE, SET_CURRENT_POST } from "../constance/actions"
+// import { resetComments } from './comments';
+import fakeData from '../constance/fakeData';
 
 
 
-export function getUserProfile(payload = {}) {
+export function getUserProfile(params = {}) {
     return async (dispatch) => {
-        // const data = await api.getTimeLine(payload);
-        const data = { name: 'abc' }
+        // const data = await api.getTimeLine(params);
+        const data = fakeData;
         dispatch({
-            type: "GET_TIMELINE",
-            payload: data
+            type: GET_TIMELINE,
+            payload: data,
+            params
         })
+    }
+}
 
 
+
+export function setCurrentPost(payload = {}) {
+    return async (dispatch) => {
+        // await dispatch(resetComments());
+        dispatch({
+            type: SET_CURRENT_POST,
+            payload,
+        });
     }
 }

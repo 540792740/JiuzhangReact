@@ -1,32 +1,63 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useMappedState } from 'redux-react-hook';
+import { UserOutlined, EditOutlined } from '@ant-design/icons';
 import { getUserProfile } from '../../actions/timeline';
 import styles from '../../styles/home.module.scss'
-import { Card } from 'antd';
 import Post from './Post'
+import InfiniteScroll from 'react-infinite-scroller';
+import { Row, Affix } from 'antd';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
 
     const dispatch = useDispatch();
 
-    const { home = [] } = useMappedState((state) => {
+    const { home: { posts = [], page } = {} } = useMappedState((state) => {
         return state.timelineReducer
     });
 
+    const handleInfiniteOnLoad = () => {
+        dispatch(getUserProfile({ page: page + 1 }));
+    }
 
     useEffect(() => {
-        dispatch(getUserProfile)
+        dispatch(getUserProfile({ page: 1 }))
     }, [dispatch])
+
 
     return (
         <div className={styles.container}>
-            {home.map(({
-                id,
-                ...rest
-            }) => (
-                < Post key={id} {...rest} />
-            ))
-            }
+            <Affix offsetTop={0}>
+                <Row
+                    className={styles.appbar}
+                    justify="space-between"
+                    align="middle"
+                >
+                    <a href='/' ><UserOutlined className={styles.icon} /></a>
+                    <div className={styles.appTitle}>Weibo app</div>
+                    <Link to="/new"><EditOutlined className={styles.icon} /></Link>
+                </Row>
+            </Affix>
+            <InfiniteScroll
+                initialLoad={false}
+                pageStart={1}
+                loadMore={handleInfiniteOnLoad}
+                hasMore
+            >
+                {posts.map(({
+                    id,
+                    ...rest
+                }) => (
+                    < Post
+                        key={id + '' + Math.random() * 100}
+                        id={id + '' + Math.random() * 100}
+                        {...rest}
+                    />
+                ))
+                }
+            </InfiniteScroll>
+
         </div >
     );
 }
