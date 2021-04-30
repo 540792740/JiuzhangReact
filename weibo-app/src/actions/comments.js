@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import * as api from '../api/comments';
-import { GET_COMMENTS, RESET_COMMENTS, ADD_COMMENT, REMOVE_COMMENT } from '../constants/actions';
+import { GET_COMMENTS, RESET_COMMENTS, ADD_COMMENT, REMOVE_COMMENT } from '../constance/actions';
 
 export function createComment(params = {}, isFirst) {
     return async (dispatch) => {
