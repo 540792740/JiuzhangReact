@@ -4,7 +4,7 @@ import {
     Route,
 } from "react-router-dom";
 
-const Home = lazy(() => import('../Pages/Home'))
+const Home = lazy(() => import('../Pages/Home/Home'))
 
 function NavigationBar() {
     return (

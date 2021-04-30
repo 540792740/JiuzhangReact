@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function getAxiosInstance(options) {
     const instance = axios.create();
-    // interceptors(instance, options)
+    // interceptors(inst ance, options)
     return instance;
 }
 

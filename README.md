@@ -53,10 +53,15 @@
 #### SASS：
 * React has inner node-sass: yarn add node-sass -D
 * SCSS is more functional than SASS, almost same. Sass is strict write way(no {})
+    ```
+        @import './mixin.scss' 
+    ```
+
 
 
 
 ## antd
+* yarn add antd
 * prefix: using add component before current Com ponent
 * Using Form
 * more focus on Bussiness design, bundle size is large, contain more design
@@ -92,11 +97,25 @@
 * .div1::after{content:'...'} add content after the element
 
 ## css interview question: two line long sentences:
+* text areacd 
 ```
     display: -webkit-box;
     overflow: hidden: 框外的不显示
     -webkit-line-clamp:2 显示两行
     -webkit-box-orient:vertical
+```
+* list with no default:
+```
+    ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+```
+
+* 9 pictures css
+```
+
 ```
 
 ## compatibility (browser support)：
@@ -225,7 +244,7 @@
     import React, { lazy, Suspense } from 'react';
     const Login = lazy(() => import('../Pages/Login'))
 ```
-* npm install babel-plugin-import -D  antd的按需加载, override.js更新，提升性能。
+* npm install babel-plugin-import -D  antd的按需加载, config-overrides.js更新，提升性能。
 
 ## loading: Suspense wrap component, used when async loading
 ```
@@ -310,6 +329,7 @@
 * padding : 80%  => '%' percetage will based on width
 
 ## antd react-infinite-scroller 
+* npm install react-infinite-scroller -S
 
 ## Interview question: what is Serverside Rendering:
 * The ReactDOMServer object enables you to render components to static markup. Typically, it’s used on a Node server:
