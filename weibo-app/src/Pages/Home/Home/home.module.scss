@@ -1,11 +1,12 @@
-@import './mixin.scss' ;
-@import './variable.scss';
+@import '../../../styles/variable.scss';
+
 
 .container {
   background-color: $BACKGROUND_GREY_COLOR;
   .appbar {
     background-color: #fff;
     padding: 5px 12px;
+    justify-content: space-between;
     a {
       color: $TEXT_BLACK_COLOR;
     }

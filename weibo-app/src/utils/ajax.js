@@ -1,9 +1,10 @@
 import axios from 'axios';
-// import * as interceptors from './interceptors'
+import * as interceptors from './interceptors'
 
 function getAxiosInstance(options) {
     const instance = axios.create();
-    // interceptors(inst ance, options)
+    interceptors.install(instance, options);
+    instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     return instance;
 }
 

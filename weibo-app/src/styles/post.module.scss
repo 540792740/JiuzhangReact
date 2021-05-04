@@ -1,7 +1,7 @@
 @import './mixin.scss' ;
 @import './variable.scss';
 
-.contain
+
 .post {
   margin: 10px;
   .user {
@@ -47,7 +47,6 @@
     }
   }
 }
-
 
 :global(.ant-card-head) {
   padding: 0 8px;

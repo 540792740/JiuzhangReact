@@ -48,7 +48,7 @@ const Post = ({
             window.location.href = `/comments/${id}`;
         }
         else {
-            dispatch(setCurrentPost({ id: isCurrent ? null : id }));
+            dispatch(({ id: isCurrent ? null : id }));
         }
     }
 

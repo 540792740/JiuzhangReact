@@ -4,9 +4,9 @@ const initialState = {
     home: { posts: [], page: 0 }
 }
 
-export default function timelineReducer(state = initialState, action) {
-    const statuses = action.payload || {}
-    const { page } = action.params || 1
+export default function reducer(state = initialState, action) {
+    const { statuses, id } = action.payload || {};
+    const { page } = action.params || {};
     switch (action.type) {
         case GET_TIMELINE:
             return {
@@ -16,7 +16,12 @@ export default function timelineReducer(state = initialState, action) {
                     page,
                 },
             }
+        // case SET_CURRENT_POST:
+        //     return {
+        //         ...state,
+        //         current: id,
+        //     }
         default:
-            return state
+            return state;
     }
 }
