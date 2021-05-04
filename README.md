@@ -77,7 +77,7 @@
 ## useEffect
 * trigger useEffect when second para[] changed
 * when first para return a function: unmount
-* when there is no second para: always call this hook after render.
+* when there is no second para: always call this hook after render. componentDidUpdate
 * when second para is empty array: excute once, work same as componentDidMount
 
 ## useState
@@ -111,6 +111,12 @@
     padding: 0;
     margin: 0;
     }
+```
+* Position:
+```
+absolute, fixed, reletive, static, sticky
+sticky: 在父辈的scope里面fix。limitation： 有兼容性问题，IE
+fixed：全局fix
 ```
 
 * 9 pictures css
@@ -336,3 +342,12 @@
 The following methods can be used in both the server and browser environments:
 renderToString()
 renderToStaticMarkup()
+
+## npmjs:
+* query-string:
+    * queryString.parseUrl(url) -> object
+
+## interview Question: 常用的安全问题：
+* XSS (Crose Site Script) 占9成
+* CSRF
+* SQL 注入

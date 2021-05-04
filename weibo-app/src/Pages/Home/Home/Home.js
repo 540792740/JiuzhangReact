@@ -19,12 +19,10 @@ function Home() {
         });
 
     const handleInfiniteOnLoad = () => {
-        console.log('====================================');
         dispatch(getUserProfile({ page: page + 1 }));
     }
 
     useEffect(() => {
-        console.log("step 1");
         dispatch(getUserProfile({ page: 1 }))
     }, [dispatch])
 
