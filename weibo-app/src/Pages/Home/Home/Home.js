@@ -5,20 +5,24 @@ import { UserOutlined, EditOutlined } from '@ant-design/icons';
 import { getUserProfile } from '../../../actions/timeline';
 import styles from './home.module.scss'
 import Post from '../Post'
+import CommentsList from '../CommentsList'
 import InfiniteScroll from 'react-infinite-scroller';
 import { Link } from 'react-router-dom';
-
+import { LOGIN_URL } from '../../../constance';
 
 function Home() {
 
     const dispatch = useDispatch();
-    const { home: { posts = [], page } = {} } = useMappedState((state) => {
-        return state.timelineReducer
-    });
+    const { home: { posts = [], page } = {}, current } =
+        useMappedState((state) => {
+            return state.timelineReducer
+        });
+
     const handleInfiniteOnLoad = () => {
         console.log('====================================');
         dispatch(getUserProfile({ page: page + 1 }));
     }
+
     useEffect(() => {
         console.log("step 1");
         dispatch(getUserProfile({ page: 1 }))
@@ -32,7 +36,7 @@ function Home() {
                     justify="space-between"
                     align="middle"
                 >
-                    <a href='/' ><UserOutlined className={styles.icon} /></a>
+                    <a href={LOGIN_URL}><UserOutlined className={styles.icon} /></a>
                     <div className={styles.appTitle}>Weibo app</div>
                     <Link to="/new"><EditOutlined className={styles.icon} /></Link>
                 </Row>
@@ -47,11 +51,18 @@ function Home() {
                     id,
                     ...rest
                 }) => (
-                    < Post
-                        key={id + '' + Math.random() * 100}
-                        id={id + '' + Math.random() * 100}
-                        {...rest}
-                    />
+                    <>
+                        <Post
+                            key={id}
+                            id={id}
+                            isCurrent={current === id}
+                            {...rest}
+                        />
+                        {
+                            current === id &&
+                            <CommentsList id={current} />
+                        }
+                    </>
                 ))
                 }
             </InfiniteScroll>

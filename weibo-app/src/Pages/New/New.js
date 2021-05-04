@@ -10,6 +10,7 @@ const { TextArea } = Input;
 
 function New({ match }) {
     const dispatch = useDispatch();
+    console.log('new', { match });
     const { params: { id } } = match;
     const [value, setValue] = useState('');
     const handleClick = (e) => {
@@ -41,8 +42,10 @@ function New({ match }) {
             </Affix>
             <div className={styles.content}>
                 <TextArea
+                    value={value}
                     className={styles.textarea}
                     placeholder={id ? '写评论...' : '分享新鲜事...'}
+                    onChange={(e) => setValue(e.target.value)}
                 />
             </div>
         </div>

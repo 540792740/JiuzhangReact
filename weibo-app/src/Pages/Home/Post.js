@@ -3,8 +3,9 @@ import moment from 'moment';
 import styles from '../../styles/post.module.scss'
 import { Card } from 'antd';
 import { RetweetOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
-import { useDispatch } from 'redux-react-hook';
+import { useDispatch, useMappedState } from 'redux-react-hook';
 import { setCurrentPost } from '../../actions/timeline';
+import { getComments, resetComments } from '../../actions/comments';
 
 const getPostTitle = (
     user,
@@ -42,63 +43,64 @@ const Post = ({
     isCurrent,
 }) => {
     const dispatch = useDispatch();
+    const { home: { posts = [], page } = {} } = useMappedState((state) => {
+        return state.timelineReducer
+    });
     const handleClickComment = () => {
         console.log("comments_count", comments_count);
-        if (comments_count !== 0) {
+        if (!comments_count) {
             window.location.href = `/comments/${id}`;
         }
         else {
-            dispatch(({ id: isCurrent ? null : id }));
+            dispatch(setCurrentPost({ id: isCurrent ? null : id }));
+            dispatch(getComments({ id }))
         }
     }
 
     return (
-        <div className={styles.contain}>
-            <Card
-                type={type}
-                className={styles.post}
-                bordered={false}
-                hoverable
-                title={getPostTitle(user, created_at, source)}
-                actions={type ? [] : [
-                    <div>
-                        <RetweetOutlined key="retweet" />
-                        <span> {reposts_count || ''}</span>
-                    </div>,
-                    <div>
-                        <LikeOutlined key="like" />
-                        <span> {attitudes_count || ''}</span>
-                    </div>,
-                    <div onClick={handleClickComment}>
-                        <MessageOutlined key="message" />
-                        <span> {comments_count || ''}</span>
-                    </div>,
-                ]}
-            >
-                <div className={styles.content}>
-                    <div className={styles.text}>
-                        {text}
-                        {
-                            retweeted_status &&
-                            <Post type="inner" {...retweeted_status} />
-                        }
+        <Card
+            type={type}
+            className={styles.post}
+            bordered={false}
+            hoverable
+            title={getPostTitle(user, created_at, source)}
+            actions={type ? [] : [
+                <div>
+                    <RetweetOutlined key="retweet" />
+                    <span> {reposts_count || ''}</span>
+                </div>,
+                <div>
+                    <LikeOutlined key="like" />
+                    <span> {attitudes_count || ''}</span>
+                </div>,
+                <div onClick={handleClickComment}>
+                    <MessageOutlined key="message" />
+                    <span> {comments_count || ''}</span>
+                </div>,
+            ]}
+        >
+            <div className={styles.content}>
+                <div className={styles.text}>
+                    {text}
+                    {
+                        retweeted_status &&
+                        <Post type="inner" {...retweeted_status} />
+                    }
 
-                    </div>
-                    <ul className={styles.images}>
-                        {
-                            pic_urls.map(({ thumbnail_pic }, index) => (
-                                <li key={thumbnail_pic + '' + index} className={styles.imgWrapper}>
-                                    <div className={styles.imgContainer}>
-                                        <img src={thumbnail_pic} alt={thumbnail_pic} />
-                                    </div>
-                                </li>
-                            ))
-                        }
-                    </ul>
                 </div>
-            </Card>
-
-        </div>
+                <ul className={styles.images}>
+                    {
+                        pic_urls.map(({ thumbnail_pic }, index) => (
+                            <li key={thumbnail_pic + '' + index} className={styles.imgWrapper}>
+                                <div className={styles.imgContainer}>
+                                    <img src={thumbnail_pic} alt={thumbnail_pic} />
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </Card>
     );
 }
 
