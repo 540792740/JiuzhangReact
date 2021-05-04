@@ -349,5 +349,8 @@ renderToStaticMarkup()
 
 ## interview Question: 常用的安全问题：
 * XSS (Crose Site Script) 占9成
+    * 解决方法： 
+        1. 转译： encodeURIComponent(`<script>`), 尤其对用户输入的信息
 * CSRF
+    * using CSRF token
 * SQL 注入
