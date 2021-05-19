@@ -354,3 +354,25 @@ renderToStaticMarkup()
 * CSRF
     * using CSRF token
 * SQL 注入
+
+
+## jsConfig.js
+```
+{
+    "compilerOptions": {
+        "baseUrl": "src"
+    },
+    "include": [
+        "src"
+    ]
+}
+```
+
+### Interview Questions:
+* 不仅要学技术，还要深入了解自己的产品，了解产品痛点。 因为技术不是独立存在的的，必须要帮助到业务。
+* Stateful vs stateless
+* a==1 && a==2 && a==3
+* most difficut tech thing in project
+* 我喜欢写文档，遇到一些问题我都会记录起来。在sams我们有confluence。
+* prefetch, preload
+* cookie 的作用
