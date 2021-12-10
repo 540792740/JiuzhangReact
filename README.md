@@ -56,6 +56,10 @@
     ```
         @import './mixin.scss' 
     ```
+* node-sass 是用 node(调用 cpp 编写的 libsass)来编译 sass；
+* dart-sass 是用 drat VM 来编译 sass；
+* node-sass是自动编译实时的，dart-sass需要保存后才会生效
+* 推荐 dart-sass 性能更好（也是 sass 官方使用的），而且 node-sass 因为国情问题经常装不上
 
 
 
